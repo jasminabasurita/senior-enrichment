@@ -30,6 +30,7 @@ export function fetchStudents() {
         const action = getStudents(students)
         dispatch(action)
       })
+      .catch(err => console.error(err))
   }
 }
 
@@ -42,6 +43,21 @@ export function postStudent(student) {
         const action = getStudent(newStudent)
         dispatch(action)
       })
+      .catch(err => console.error(err))
+  }
+}
+
+export function deleteStudent(studentId) {
+  console.log(`/api/students/${studentId}`)
+  return function thunk(dispatch) {
+    return axios
+      .delete(`/api/students/${studentId}`)
+      .then(res => res.data)
+      .then(students => {
+        const action = getStudents(students)
+        dispatch(action)
+      })
+      .catch(err => console.error(err))
   }
 }
 

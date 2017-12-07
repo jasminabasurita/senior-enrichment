@@ -35,7 +35,7 @@ router.delete("/:id", (req, res, next) => {
   const id = req.params.id
   Campus.findById(id)
     .then(campus => {
-      return campus.delete()
+      return campus.destroy()
     })
     .then(deletedCampus => res.json(deletedCampus))
     .catch(next)

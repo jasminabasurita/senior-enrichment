@@ -57,6 +57,11 @@ a {
   justify-content: space-around;
   align-items: center;
 }
+.studentList .column{
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
 .studentList button{
   border: none;
   background: none;

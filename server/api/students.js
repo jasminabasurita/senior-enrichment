@@ -16,7 +16,7 @@ router.post("/", (req, res, next) => {
 
 router.get("/:id", (req, res, next) => {
   const id = req.params.id
-  Student.findById({ id: id, include: [{ all: true }] })
+  Student.findById(id)
     .then(student => res.json(student))
     .catch(next)
 })
@@ -35,9 +35,10 @@ router.delete("/:id", (req, res, next) => {
   const id = req.params.id
   Student.findById(id)
     .then(student => {
-      return student.delete()
+      return student.destroy()
     })
-    .then(deletedStudent => res.json(deletedStudent))
+    .then(() => Student.findAll())
+    .then(students => res.json(students)) //return updated list of students
     .catch(next)
 })
 
