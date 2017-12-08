@@ -27,7 +27,8 @@ router.put("/:id", (req, res, next) => {
     .then(campus => {
       return campus.update(req.body)
     })
-    .then(updatedCampus => res.json(updatedCampus))
+    .then(() => Campus.findAll())
+    .then(campuses => res.json(campuses))
     .catch(next)
 })
 
@@ -37,7 +38,8 @@ router.delete("/:id", (req, res, next) => {
     .then(campus => {
       return campus.destroy()
     })
-    .then(deletedCampus => res.json(deletedCampus))
+    .then(() => Campus.findAll())
+    .then(campuses => res.json(campuses))
     .catch(next)
 })
 

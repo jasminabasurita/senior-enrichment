@@ -14,9 +14,26 @@ const SingleStudent = props => {
   const student = props.students.length
     ? props.students.find(foundStudent => foundStudent.id === studentId)
     : {}
+  const campus = props.campuses.length
+    ? props.campuses.find(foundCampus => foundCampus.id === student.campusId)
+    : {}
   return (
     <div>
-      {student.imageUrl && <img src={student.imageUrl} />}
+      <div className="add">
+        <NavLink to="/campuses/studentUpdate">Update Student</NavLink>
+      </div>
+      <div id="content">
+        <h2>{student.name}</h2>
+        <h5>Student Email: {student.email}</h5>
+        <h5>Student GPA: {student.gpa}</h5>
+        <h5>
+          Student Campus:{" "}
+          <NavLink to={`/campuses/${campus.id}`} className="linkBtn">
+            {" "}
+            {campus.name}
+          </NavLink>
+        </h5>
+      </div>
     </div>
   )
 }

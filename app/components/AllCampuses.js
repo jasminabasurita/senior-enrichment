@@ -13,17 +13,21 @@ function AllCampuses(props) {
       <div className="add">
         <NavLink to="/campuses/campusForm">Add a Campus</NavLink>
       </div>
-      <h2>Campuses</h2>
-      {props.campuses.map(campus => {
-        return (
-          <NavLink to={`/campuses/${campus.id}`} key={campus.id}>
-            <div className="campusItem">
-              <img src={campus.imageUrl} />
-              <h4>{campus.name}</h4>
-            </div>
-          </NavLink>
-        )
-      })}
+      <div id="content">
+        <h2>Campuses</h2>
+        <div id="allCampusView">
+          {props.campuses.map(campus => {
+            return (
+              <NavLink to={`/campuses/${campus.id}`} key={campus.id}>
+                <div className="campusItem">
+                  <img src={campus.imageUrl} />
+                  <h4>{campus.name}</h4>
+                </div>
+              </NavLink>
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 }

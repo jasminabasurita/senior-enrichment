@@ -45,6 +45,18 @@ export function postCampus(newCampus) {
   }
 }
 
+export function updateCampus(updatedCampus, campusId) {
+  return function thunk(dispatch) {
+    return axios
+      .put(`/api/campuses/${campusId}`, updatedCampus)
+      .then(res => res.data)
+      .then(updatedCampusList => {
+        const action = getCampuses(updatedCampusList)
+        dispatch(action)
+      })
+  }
+}
+
 // SUB-REDUCERS
 
 export default function campusesReducer(state = [], action) {

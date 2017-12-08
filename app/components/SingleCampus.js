@@ -16,20 +16,25 @@ function SingleCampus(props) {
     : {}
   return (
     <div>
-      <h2>{campus.name}</h2>
-      <img src={campus.imageUrl} />
-      <h3>Description: </h3>
-      <p>{campus.description}</p>
-      <h3>Students: </h3>
-      {props.students
-        .filter(student => student.campusId === campusId)
-        .map(student => (
-          <h5 key={student.id}>
-            <NavLink to={`/students/${student.id}`} >
-              {student.name}
-            </NavLink>
-          </h5>
-        ))}
+      <div className="add">
+        <NavLink to={`/campuses/${campusId}/campusUpdate`}>Update Campus</NavLink>
+      </div>
+      <div id="content">
+        <h2>{campus.name}</h2>
+        <img src={campus.imageUrl} />
+        <h3>Description: </h3>
+        <p>{campus.description}</p>
+        <h3>Students: </h3>
+        {props.students
+          .filter(student => student.campusId === campusId)
+          .map(student => (
+            <h5 key={student.id}>
+              <NavLink to={`/students/${student.id}`} className="linkBtn">
+                {student.name}
+              </NavLink>
+            </h5>
+          ))}
+      </div>
     </div>
   )
 }

@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => {
 
 function CampusForm(props) {
   return (
-    <div>
+    <div id="form">
       <form onSubmit={event => props.handleSubmit(event, props.newCampus)}>
         <div className="textField">
           <label>Campus Name: </label>

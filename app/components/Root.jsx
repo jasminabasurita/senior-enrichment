@@ -7,6 +7,7 @@ import SingleCampus from "./SingleCampus"
 import SingleStudent from "./SingleStudent"
 import StudentForm from "./StudentForm"
 import CampusForm from "./CampusForm.js"
+import UpdateCampus from "./UpdateCampus"
 import store from "../store"
 import {fetchCampuses, fetchStudents} from "../reducers"
 
@@ -27,6 +28,7 @@ export default class Root extends Component {
         <Route exact path="/students" component={AllStudents} />
         <Route exact path="/students/studentForm" component={StudentForm} />
         <Route exact path="/campuses/:campusId" component={SingleCampus} />
+        <Route exact path="/campuses/:campusId/campusUpdate" component={UpdateCampus} />
         <Route exact path="/students/:studentId" component={SingleStudent} />
       </Switch>
       </div>

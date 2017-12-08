@@ -41,52 +41,54 @@ const mapDispatchToProps = dispatch => {
 function StudentForm(props) {
   return (
     <div>
-      <form onSubmit={event => props.handleSubmit(event, props.newStudent)}>
-        <div className="textField">
-          <label>First Name: </label>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="Enter First Name..."
-            onChange={props.handleFirst}
-            value={props.newStudent.firstName}
-          />
-        </div>
-        <div className="textField">
-          <label>Last Name: </label>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Enter Last Name..."
-            onChange={props.handleLast}
-            value={props.newStudent.lastName}
-          />
-        </div>
-        <div className="textField">
-          <label>Email: </label>
-          <input
-            type="text"
-            name="email"
-            placeholder="Enter Email..."
-            onChange={props.handleEmail}
-            value={props.newStudent.email}
-          />
-        </div>
-        <div>
-          <label>Campus: </label>
-          <select
-            onChange={props.handleCampusId}
-            value={props.newStudent.campusId}
-          >
-            {props.campuses.map(campus => (
-              <option key={campus.id} value={campus.id}>
-                {campus.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button>Submit</button>
-      </form>
+      <div id="form">
+        <form onSubmit={event => props.handleSubmit(event, props.newStudent)}>
+          <div className="textField">
+            <label>First Name: </label>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="Enter First Name..."
+              onChange={props.handleFirst}
+              value={props.newStudent.firstName}
+            />
+          </div>
+          <div className="textField">
+            <label>Last Name: </label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Enter Last Name..."
+              onChange={props.handleLast}
+              value={props.newStudent.lastName}
+            />
+          </div>
+          <div className="textField">
+            <label>Email: </label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter Email..."
+              onChange={props.handleEmail}
+              value={props.newStudent.email}
+            />
+          </div>
+          <div>
+            <label>Campus: </label>
+            <select
+              onChange={props.handleCampusId}
+              value={props.newStudent.campusId}
+            >
+              {props.campuses.map(campus => (
+                <option key={campus.id} value={campus.id}>
+                  {campus.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
   )
 }
