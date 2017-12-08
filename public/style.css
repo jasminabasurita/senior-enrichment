@@ -23,6 +23,7 @@ a {
   color: #A8A8A8;
   margin: 0;
   font-family: 'Lobster', cursive;
+  font-size: 4.5vh;
 }
 .navbar a {
   color: white;
@@ -32,6 +33,7 @@ a {
 }
 #navButtons {
   width: 21rem;
+  font-size: 3vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,12 +54,12 @@ a {
 .navbar .activeNav {
   background: #283382;
 }
-#addStudent {
+.add {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-#addStudent a {
+.add a {
   background: #41C047;
   border: none;
   border-radius: 0.5rem;
@@ -92,4 +94,13 @@ a {
 .studentList img{
   width: 1.2rem;
   height: 1.2rem;
+}
+.campusItem {
+  width: 30vw;
+  height: 35vw;
+  border: 1px black solid;
+  border-radius: 2rem;
+}
+.campusItem img {
+  width: 90%;
 }

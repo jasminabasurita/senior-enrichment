@@ -6,7 +6,7 @@ import {
   writeEmail,
   writeCampusId,
   postStudent,
-  resetForm
+  resetStudentForm
 } from "../reducers"
 
 const mapStateToProps = state => {
@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => {
     handleSubmit: (event, newStudent) => {
       event.preventDefault()
       dispatch(postStudent(newStudent))
-      dispatch(resetForm())
+      dispatch(resetStudentForm())
     }
   }
 }

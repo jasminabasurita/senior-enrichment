@@ -20,7 +20,7 @@ const mapStateToProps = state => {
 function AllStudents(props) {
   return (
     <div>
-      <div id="addStudent">
+      <div className="add">
         <NavLink to="/students/studentForm">
           Enroll Today
         </NavLink>

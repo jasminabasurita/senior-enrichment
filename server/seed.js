@@ -6,7 +6,8 @@ db
   .then(() => {
     return Campus.create({
       name: "Interstellar Chismeria",
-      imageUrl: "https://giphy.com/gifs/xT1XGKf6DzZQtHTyvu/html5",
+      imageUrl:
+        "https://www.everythingselectric.com/wp-content/uploads/saturn-star-6.jpg",
       description:
         "Teaching the essential skills to talk smack accross the galaxy"
     })
@@ -14,7 +15,8 @@ db
   .then(() => {
     return Campus.create({
       name: "Plutonian Hackeries",
-      imageUrl: "https://giphy.com/gifs/xT1XGKf6DzZQtHTyvu/html5",
+      imageUrl:
+        "https://www.everythingselectric.com/wp-content/uploads/saturn-star-6.jpg",
       description:
         "All the necessary skills to hack pluto into and out of being a planet"
     })
@@ -22,15 +24,16 @@ db
   .then(() => {
     return Campus.create({
       name: "Kryptonian Kitty Kat Kampus",
-      imageUrl: "https://giphy.com/gifs/xT1XGKf6DzZQtHTyvu/html5",
-      description:
-        "Kampin with Kitties chillin with some Kray Kryptonian"
+      imageUrl:
+        "https://www.everythingselectric.com/wp-content/uploads/saturn-star-6.jpg",
+      description: "Kampin with Kitties chillin with some Kray Kryptonian"
     })
   })
   .then(() => {
     return Campus.create({
       name: "El Instituto de Cocina de Saturno",
-      imageUrl: "https://giphy.com/gifs/xT1XGKf6DzZQtHTyvu/html5",
+      imageUrl:
+        "https://www.everythingselectric.com/wp-content/uploads/saturn-star-6.jpg",
       description:
         "Hacking is great, but it'd be better if you were surviving off more than just space rocks"
     })

@@ -8,17 +8,18 @@ const mapStateToProps = state => {
   }
 }
 function AllCampuses(props) {
-  console.log(props)
   return (
     <div>
-      <h3>Campuses</h3>
+      <div className="add">
+        <NavLink to="/campuses/campusForm">Add a Campus</NavLink>
+      </div>
+      <h2>Campuses</h2>
       {props.campuses.map(campus => {
-        console.log(campus)
         return (
-          <NavLink to={`/campuses/${campus.id}`}  key={campus.id}>
-            <div>
-              <h5>{campus.name}</h5>
+          <NavLink to={`/campuses/${campus.id}`} key={campus.id}>
+            <div className="campusItem">
               <img src={campus.imageUrl} />
+              <h4>{campus.name}</h4>
             </div>
           </NavLink>
         )
