@@ -11,6 +11,7 @@ const WRITE_FIRST_NAME = "WRITE_FIRST_NAME"
 const WRITE_LAST_NAME = "WRITE_LAST_NAME"
 const WRITE_EMAIL = "WRITE_EMAIL"
 const WRITE_CAMPUS_ID = "WRITE_CAMPUS_ID"
+const RESET_FORM = "RESET_FORM"
 
 // ACTION CREATORS
 
@@ -38,6 +39,12 @@ export function writeCampusId(campusId) {
     campusId
   }
 }
+export function resetForm() {
+  return {
+    type: RESET_FORM,
+    initialState
+  }
+}
 
 // SUB-REDUCERS
 
@@ -51,6 +58,8 @@ export default function studentReducer(state = initialState, action) {
       return Object.assign({}, state, { email: action.email })
     case WRITE_CAMPUS_ID:
       return Object.assign({}, state, { campusId: action.campusId })
+    case RESET_FORM:
+      return Object.assign({}, action.initialState)
     default:
       return state
   }

@@ -5,7 +5,8 @@ import {
   writeLastName,
   writeEmail,
   writeCampusId,
-  postStudent
+  postStudent,
+  resetForm
 } from "../reducers"
 
 const mapStateToProps = state => {
@@ -32,6 +33,7 @@ const mapDispatchToProps = dispatch => {
     handleSubmit: (event, newStudent) => {
       event.preventDefault()
       dispatch(postStudent(newStudent))
+      dispatch(resetForm())
     }
   }
 }
