@@ -1,20 +1,56 @@
-const WRITE_STUDENT = "WRITE_STUDENT"
+const initialState = {
+  firstName: "",
+  lastName: "",
+  campusId: 1,
+  email: ""
+}
+
+//
+
+const WRITE_FIRST_NAME = "WRITE_FIRST_NAME"
+const WRITE_LAST_NAME = "WRITE_LAST_NAME"
+const WRITE_EMAIL = "WRITE_EMAIL"
+const WRITE_CAMPUS_ID = "WRITE_CAMPUS_ID"
 
 // ACTION CREATORS
 
-export function writeStudent(student) {
+export function writeFirstName(firstName) {
   return {
-    type: WRITE_STUDENT,
-    student
+    type: WRITE_FIRST_NAME,
+    firstName
+  }
+}
+export function writeLastName(lastName) {
+  return {
+    type: WRITE_LAST_NAME,
+    lastName
+  }
+}
+export function writeEmail(email) {
+  return {
+    type: WRITE_EMAIL,
+    email
+  }
+}
+export function writeCampusId(campusId) {
+  return {
+    type: WRITE_CAMPUS_ID,
+    campusId
   }
 }
 
 // SUB-REDUCERS
 
-export default function studentReducer(state = "", action) {
+export default function studentReducer(state = initialState, action) {
   switch (action.type) {
-    case WRITE_STUDENT:
-      return action.campuses
+    case WRITE_FIRST_NAME:
+      return Object.assign({}, state, { firstName: action.firstName })
+    case WRITE_LAST_NAME:
+      return Object.assign({}, state, { lastName: action.lastName })
+    case WRITE_EMAIL:
+      return Object.assign({}, state, { email: action.email })
+    case WRITE_CAMPUS_ID:
+      return Object.assign({}, state, { campusId: action.campusId })
     default:
       return state
   }

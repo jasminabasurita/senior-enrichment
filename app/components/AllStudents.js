@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-// import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import React from "react"
 import { deleteStudent } from "../reducers"
 
@@ -18,9 +18,13 @@ const mapStateToProps = state => {
   }
 }
 function AllStudents(props) {
-  console.log(props)
   return (
     <div>
+      <div id="addStudent">
+        <NavLink to="/students/studentForm">
+          Enroll Today
+        </NavLink>
+      </div>
       <div className="studentList">
         <div className="column">
           <h3>Students</h3>

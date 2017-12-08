@@ -48,7 +48,6 @@ export function postStudent(student) {
 }
 
 export function deleteStudent(studentId) {
-  console.log(`/api/students/${studentId}`)
   return function thunk(dispatch) {
     return axios
       .delete(`/api/students/${studentId}`)
@@ -68,7 +67,7 @@ export default function campusesReducer(state = [], action) {
     case GET_STUDENTS:
       return action.students
     case GET_STUDENT:
-      return [...state.students, action.student]
+      return [...state, action.student]
     default:
       return state
   }
