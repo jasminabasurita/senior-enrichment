@@ -45,6 +45,19 @@ export function postCampus(newCampus) {
   }
 }
 
+export function deleteCampus(campusId) {
+  return function thunk(dispatch) {
+    return axios
+      .delete(`/api/campuses/${campusId}`)
+      .then(res => res.data)
+      .then(campuses => {
+        const action = getCampuses(campuses)
+        dispatch(action)
+      })
+      .catch(err => console.error(err))
+  }
+}
+
 export function updateCampus(updatedCampus, campusId) {
   return function thunk(dispatch) {
     return axios

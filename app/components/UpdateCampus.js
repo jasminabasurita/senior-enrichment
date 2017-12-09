@@ -13,7 +13,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         updatedCampus.description = state.description
       }
 
-      dispatch(updateCampus(updatedCampus, ownProps.match.params.campusId))
+      const campusId = ownProps.match.params.campusId
+      dispatch(updateCampus(updatedCampus, campusId))
+      ownProps.history.push(`/campuses/${campusId}`)
     }
   }
 }
@@ -74,7 +76,7 @@ class UpdateCampus extends Component {
               value={this.state.description}
             />
           </div>
-          <button>Submit</button>
+          <button className="add">Submit</button>
         </form>
       </div>
     )

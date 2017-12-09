@@ -1,6 +1,7 @@
 * {
    box-sizing: border-box;
 }
+*:hover:focus { outline: none; }
 
 body {
   margin: 0;
@@ -36,13 +37,13 @@ a {
 #navButtons {
   width: 21rem;
   font-size: 3vh;
+  font-family: 'Lobster';
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .navbar .navButton {
-  background: #151515;
-  /* border: 1px black solid; */
+  background: linear-gradient(#595959, #161616);
   border-radius: 0.5rem;
   height: 70%;
   width: 49%;
@@ -51,18 +52,26 @@ a {
   align-items: center;
 }
 .navbar .navButton:hover {
-  background: #1F1F1F;
+  background: linear-gradient(#3a3a3a, #080808);
+}
+.navbar .navButton:active {
+  background: linear-gradient(#1D1D1D, #000000);
 }
 .navbar .activeNav {
-  background: #283382;
+  background: linear-gradient(#283382, #161616);
+  outline: none;
+}
+.navbar .activeNav:hover {
+  background: linear-gradient(#283382, #161616);
 }
 .add {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-.add a {
-  background: #41C047;
+.add a, button.add {
+  color: white;
+  background: linear-gradient(#41C047, #154318);
   border: none;
   border-radius: 0.5rem;
   width: 10.3rem;
@@ -75,9 +84,35 @@ a {
   justify-content: center;
   align-items: center;
 }
-.add a:hover {
-  background: #349B39;
+.add a:hover, button.add:hover {
+  background: linear-gradient(#256B28, #091f0b);
 }
+.add a:active, button.add:active {
+  background: linear-gradient(#1F5421, #09180B);
+}
+
+button.delete {
+  color: white;
+  background: linear-gradient(#B43535, #431515);
+  border: none;
+  border-radius: 0.5rem;
+  width: 10.3rem;
+  height: 2rem;
+  margin: 1rem;
+  font-family: 'Lobster';
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button.delete:hover {
+  background: linear-gradient(#852525, #2b0d0d);
+}
+button.delete:active {
+  background: linear-gradient(#652323, #130505);
+}
+
 .studentList {
   display: flex;
   justify-content: space-around;
@@ -116,6 +151,15 @@ a {
   box-shadow: 0 0 5px 5px black;
   color: white;
 }
+#campusImage {
+  display: flex;
+  justify-content: center;
+}
+#campusImage > img {
+  width: 56vw;
+  border-radius: 1rem;
+}
+
 .campusItem {
   width: 25vw;
   height: 28vw;

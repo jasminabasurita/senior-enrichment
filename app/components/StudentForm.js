@@ -4,6 +4,7 @@ import {
   writeFirstName,
   writeLastName,
   writeEmail,
+  writeGpa,
   writeCampusId,
   postStudent,
   resetStudentForm
@@ -16,7 +17,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleFirst: event => {
       dispatch(writeFirstName(event.target.value))
@@ -27,6 +28,9 @@ const mapDispatchToProps = dispatch => {
     handleEmail: event => {
       dispatch(writeEmail(event.target.value))
     },
+    handleGpa: event => {
+      dispatch(writeGpa(event.target.value))
+    },
     handleCampusId: event => {
       dispatch(writeCampusId(event.target.value))
     },
@@ -34,6 +38,7 @@ const mapDispatchToProps = dispatch => {
       event.preventDefault()
       dispatch(postStudent(newStudent))
       dispatch(resetStudentForm())
+      ownProps.history.push("/students")
     }
   }
 }
@@ -73,12 +78,25 @@ function StudentForm(props) {
               value={props.newStudent.email}
             />
           </div>
+          <div className="textField">
+            <label>GPA: </label>
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter GPA..."
+              onChange={props.handleGpa}
+              value={props.newStudent.gpa}
+            />
+          </div>
           <div>
             <label>Campus: </label>
             <select
               onChange={props.handleCampusId}
               value={props.newStudent.campusId}
             >
+              <option value="0" disabled>
+                Select a Campus...
+              </option>
               {props.campuses.map(campus => (
                 <option key={campus.id} value={campus.id}>
                   {campus.name}
@@ -86,7 +104,7 @@ function StudentForm(props) {
               ))}
             </select>
           </div>
-          <button>Submit</button>
+          <button className="add">Submit</button>
         </form>
       </div>
     </div>

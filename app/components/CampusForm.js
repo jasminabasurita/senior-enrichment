@@ -14,7 +14,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     handleCampusName: event => {
       dispatch(writeCampusName(event.target.value))
@@ -29,6 +29,7 @@ const mapDispatchToProps = dispatch => {
       event.preventDefault()
       dispatch(postCampus(newCampus))
       dispatch(resetCampusForm())
+      ownProps.history.push("/campuses")
     }
   }
 }
@@ -67,7 +68,7 @@ function CampusForm(props) {
             value={props.newCampus.description}
           />
         </div>
-        <button>Submit</button>
+        <button className="add">Submit</button>
       </form>
     </div>
   )

@@ -1,8 +1,9 @@
 const initialState = {
   firstName: "",
   lastName: "",
-  campusId: 1,
-  email: ""
+  email: "",
+  gpa: "",
+  campusId: 0
 }
 
 //
@@ -10,6 +11,7 @@ const initialState = {
 const WRITE_FIRST_NAME = "WRITE_FIRST_NAME"
 const WRITE_LAST_NAME = "WRITE_LAST_NAME"
 const WRITE_EMAIL = "WRITE_EMAIL"
+const WRITE_GPA = "WRITE_GPA"
 const WRITE_CAMPUS_ID = "WRITE_CAMPUS_ID"
 const RESET_STUDENT_FORM = "RESET_STUDENT_FORM"
 
@@ -31,6 +33,12 @@ export function writeEmail(email) {
   return {
     type: WRITE_EMAIL,
     email
+  }
+}
+export function writeGpa(gpa) {
+  return {
+    type: WRITE_GPA,
+    gpa
   }
 }
 export function writeCampusId(campusId) {
@@ -56,6 +64,8 @@ export default function studentReducer(state = initialState, action) {
       return Object.assign({}, state, { lastName: action.lastName })
     case WRITE_EMAIL:
       return Object.assign({}, state, { email: action.email })
+    case WRITE_GPA:
+      return Object.assign({}, state, { gpa: action.gpa })
     case WRITE_CAMPUS_ID:
       return Object.assign({}, state, { campusId: action.campusId })
     case RESET_STUDENT_FORM:

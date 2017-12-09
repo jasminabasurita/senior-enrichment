@@ -47,6 +47,18 @@ export function postStudent(student) {
   }
 }
 
+export function updateStudent(updatedStudent, studentId) {
+  return function thunk(dispatch) {
+    return axios
+      .put(`/api/students/${studentId}`, updatedStudent)
+      .then(res => res.data)
+      .then(updatedStudentList => {
+        const action = getStudents(updatedStudentList)
+        dispatch(action)
+      })
+  }
+}
+
 export function deleteStudent(studentId) {
   return function thunk(dispatch) {
     return axios

@@ -5,7 +5,9 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div>
-        <h1>Galactacademy</h1>
+        <NavLink to="/">
+          <h1>Galactacademy</h1>
+        </NavLink>
       </div>
       <div id="navButtons">
         <NavLink

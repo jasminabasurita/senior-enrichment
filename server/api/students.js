@@ -27,7 +27,8 @@ router.put("/:id", (req, res, next) => {
     .then(student => {
       return student.update(req.body)
     })
-    .then(updatedStudent => res.json(updatedStudent))
+    .then(() => Student.findAll())
+    .then(students => res.json(students))
     .catch(next)
 })
 

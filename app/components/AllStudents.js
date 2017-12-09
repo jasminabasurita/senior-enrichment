@@ -44,6 +44,9 @@ function AllStudents(props) {
               <div className="column">
                 <h5>
                   {
+                    !!props.campuses.find(
+                      campus => campus.id === student.campusId
+                    ) &&
                     props.campuses.find(
                       campus => campus.id === student.campusId
                     ).name

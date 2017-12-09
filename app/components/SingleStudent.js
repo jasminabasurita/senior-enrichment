@@ -20,7 +20,9 @@ const SingleStudent = props => {
   return (
     <div>
       <div className="add">
-        <NavLink to="/campuses/studentUpdate">Update Student</NavLink>
+        <NavLink to={`/students/${studentId}/studentUpdate`}>
+          Update Student
+        </NavLink>
       </div>
       <div id="content">
         <h2>{student.name}</h2>
@@ -28,10 +30,12 @@ const SingleStudent = props => {
         <h5>Student GPA: {student.gpa}</h5>
         <h5>
           Student Campus:{" "}
-          <NavLink to={`/campuses/${campus.id}`} className="linkBtn">
-            {" "}
-            {campus.name}
-          </NavLink>
+          {!!campus && (
+            <NavLink to={`/campuses/${campus.id}`} className="linkBtn">
+              {" "}
+              {campus.name}
+            </NavLink>
+          )}
         </h5>
       </div>
     </div>
