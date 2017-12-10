@@ -27,19 +27,11 @@ class UpdateCampus extends Component {
       imageUrl: "",
       description: ""
     }
-    this.handleCampusName = this.handleCampusName.bind(this)
-    this.handleImage = this.handleImage.bind(this)
-    this.handleDescription = this.handleDescription.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleCampusName(event) {
-    this.setState({ name: event.target.value })
-  }
-  handleImage(event) {
-    this.setState({ imageUrl: event.target.value })
-  }
-  handleDescription(event) {
-    this.setState({ description: event.target.value })
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   render() {
@@ -52,7 +44,7 @@ class UpdateCampus extends Component {
               type="text"
               name="name"
               placeholder="Enter Campus Name..."
-              onChange={this.handleCampusName}
+              onChange={this.handleChange}
               value={this.state.name}
             />
           </div>
@@ -62,7 +54,7 @@ class UpdateCampus extends Component {
               type="text"
               name="imageUrl"
               placeholder="Enter Image Url..."
-              onChange={this.handleImage}
+              onChange={this.handleChange}
               value={this.state.imageUrl}
             />
           </div>
@@ -72,7 +64,7 @@ class UpdateCampus extends Component {
               type="text"
               name="description"
               placeholder="Enter Campus Description..."
-              onChange={this.handleDescription}
+              onChange={this.handleChange}
               value={this.state.description}
             />
           </div>

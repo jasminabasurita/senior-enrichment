@@ -35,41 +35,23 @@ class UpdateStudent extends Component {
       gpa: "",
       campusId: 0
     }
-    this.handleFirstName = this.handleFirstName.bind(this)
-    this.handleLastName = this.handleLastName.bind(this)
-    this.handleGpa = this.handleGpa.bind(this)
-    this.handleEmail = this.handleEmail.bind(this)
-    this.handleCampus = this.handleCampus.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
-
-  handleFirstName(event) {
-    this.setState({ firstName: event.target.value })
-  }
-  handleLastName(event) {
-    this.setState({ lastName: event.target.value })
-  }
-  handleGpa(event) {
-    this.setState({ gpa: event.target.value })
-  }
-  handleEmail(event) {
-    this.setState({ email: event.target.value })
-  }
-  handleCampus(event) {
-    console.log(event.target.value)
-    this.setState({ campusId: event.target.value })
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   render() {
     return (
       <div id="form">
-        <form onSubmit={event => this.props.handleSubmit(event, this.state)}>
+        <form onSubmit={event => this.props.handleChange(event, this.state)}>
           <div className="textField">
             <label>Update First Name: </label>
             <input
               type="text"
               name="firstName"
               placeholder="Enter First Name..."
-              onChange={this.handleFirstName}
+              onChange={this.handleChange}
               value={this.state.firstName}
             />
           </div>
@@ -79,7 +61,7 @@ class UpdateStudent extends Component {
               type="text"
               name="lastName"
               placeholder="Enter Last Name..."
-              onChange={this.handleLastName}
+              onChange={this.handleChange}
               value={this.state.lastName}
             />
           </div>
@@ -89,7 +71,7 @@ class UpdateStudent extends Component {
               type="text"
               name="email"
               placeholder="Enter Email..."
-              onChange={this.handleImage}
+              onChange={this.handleChange}
               value={this.state.imageUrl}
             />
           </div>
@@ -99,13 +81,13 @@ class UpdateStudent extends Component {
               type="text"
               name="gpa"
               placeholder="Enter GPA..."
-              onChange={this.handleGpa}
+              onChange={this.handleChange}
               value={this.state.gpa}
             />
           </div>
           <div>
             <label>Update Campus: </label>
-            <select onChange={this.handleCampus} value={this.state.campusId}>
+            <select onChange={this.handleChange} value={this.state.campusId}>
               <option value="0" disabled>
                 Select a Campus...
               </option>
