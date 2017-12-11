@@ -1,9 +1,7 @@
 import { connect } from "react-redux"
 import React from "react"
 import {
-  writeCampusName,
-  writeImageUrl,
-  writeDescription,
+  writeNewCampus,
   postCampus,
   resetCampusForm
 } from "../reducers"
@@ -16,14 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    handleCampusName: event => {
-      dispatch(writeCampusName(event.target.value))
-    },
-    handleImage: event => {
-      dispatch(writeImageUrl(event.target.value))
-    },
-    handleDescription: event => {
-      dispatch(writeDescription(event.target.value))
+    handleChange: event => {
+      dispatch(writeNewCampus({[event.target.name]: event.target.value}))
     },
     handleSubmit: (event, newCampus) => {
       event.preventDefault()
@@ -44,7 +36,7 @@ function CampusForm(props) {
             type="text"
             name="name"
             placeholder="Enter Campus Name..."
-            onChange={props.handleCampusName}
+            onChange={props.handleChange}
             value={props.newCampus.name}
           />
         </div>
@@ -54,7 +46,7 @@ function CampusForm(props) {
             type="text"
             name="imageUrl"
             placeholder="Enter Image Url..."
-            onChange={props.handleImage}
+            onChange={props.handleChange}
             value={props.newCampus.imageUrl}
           />
         </div>
@@ -64,7 +56,7 @@ function CampusForm(props) {
             type="text"
             name="description"
             placeholder="Enter Campus Description..."
-            onChange={props.handleDescription}
+            onChange={props.handleChange}
             value={props.newCampus.description}
           />
         </div>

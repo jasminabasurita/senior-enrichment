@@ -1,11 +1,7 @@
 import { connect } from "react-redux"
 import React from "react"
 import {
-  writeFirstName,
-  writeLastName,
-  writeEmail,
-  writeGpa,
-  writeCampusId,
+  writeStudentForm,
   postStudent,
   resetStudentForm
 } from "../reducers"
@@ -19,20 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    handleFirst: event => {
-      dispatch(writeFirstName(event.target.value))
-    },
-    handleLast: event => {
-      dispatch(writeLastName(event.target.value))
-    },
-    handleEmail: event => {
-      dispatch(writeEmail(event.target.value))
-    },
-    handleGpa: event => {
-      dispatch(writeGpa(event.target.value))
-    },
-    handleCampusId: event => {
-      dispatch(writeCampusId(event.target.value))
+    handleChange: (event) => {
+      dispatch(writeStudentForm({[event.target.name]: event.target.value}))
     },
     handleSubmit: (event, newStudent) => {
       event.preventDefault()
@@ -54,7 +38,7 @@ function StudentForm(props) {
               type="text"
               name="firstName"
               placeholder="Enter First Name..."
-              onChange={props.handleFirst}
+              onChange={props.handleChange}
               value={props.newStudent.firstName}
             />
           </div>
@@ -64,7 +48,7 @@ function StudentForm(props) {
               type="text"
               name="lastName"
               placeholder="Enter Last Name..."
-              onChange={props.handleLast}
+              onChange={props.handleChange}
               value={props.newStudent.lastName}
             />
           </div>
@@ -74,7 +58,7 @@ function StudentForm(props) {
               type="text"
               name="email"
               placeholder="Enter Email..."
-              onChange={props.handleEmail}
+              onChange={props.handleChange}
               value={props.newStudent.email}
             />
           </div>
@@ -84,14 +68,14 @@ function StudentForm(props) {
               type="text"
               name="email"
               placeholder="Enter GPA..."
-              onChange={props.handleGpa}
+              onChange={props.handleChange}
               value={props.newStudent.gpa}
             />
           </div>
           <div>
             <label>Campus: </label>
             <select
-              onChange={props.handleCampusId}
+              onChange={props.handleChange}
               value={props.newStudent.campusId}
             >
               <option value="0" disabled>
